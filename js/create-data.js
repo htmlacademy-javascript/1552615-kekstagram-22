@@ -38,7 +38,7 @@ const createComment = () => {
 
 const comments = new Array(25).fill(null).map(() => createComment());
 
-const createPhotoParameter = () => {
+const createPhotoParameter = (id) => {
   return {
     id: getRandomElement(getNumbers(1, 25)),
     url: `photos/${getRandomElement(getNumbers(1, 25))}.jpg`,
