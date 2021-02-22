@@ -1,4 +1,4 @@
-import { getRandomInt, getNumbers, getRandomElement } from './utils.js';
+import { getRandomInt, getRandomElement } from './utils.js';
 
 const DESCRIPTIONS = [
   'Это я на море',
