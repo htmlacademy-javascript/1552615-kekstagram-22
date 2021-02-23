@@ -36,18 +36,16 @@ const createComment = () => {
   };
 };
 
-const comments = new Array(25).fill(null).map(() => createComment());
-
 const createPhotoParameter = (id) => {
   return {
     id: id,
     url: `photos/${id}.jpg`,
     description: getRandomElement(DESCRIPTIONS),
     likes: getRandomInt(15, 200),
-    comments: getRandomElement(comments),
+    comments: new Array(getRandomInt(0, 200)).fill(null).map(() => createComment()),
   };
 };
 
 const photoParameters = new Array(25).fill(null).map((item, i) => createPhotoParameter(i + 1));
 
-export { comments, photoParameters };
+export { photoParameters };
