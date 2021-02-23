@@ -48,6 +48,4 @@ const createPhotoParameter = (id) => {
 
 const photoParameters = new Array(25).fill(null).map((item, i) => createPhotoParameter(i + 1));
 
-console.log(photoParameters);
-
 export { photoParameters };
