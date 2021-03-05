@@ -10,14 +10,14 @@ const MAXSCALE = 100;
 const onPlusButtonClick = () => {
   if (parseInt(scaleControlValue.value) < MAXSCALE) {
     scaleControlValue.value = `${parseInt(scaleControlValue.value) + SCALESTEP}%`;
-  };
+  }
   imgPreview.style.transform = `scale(${parseInt(scaleControlValue.value) / 100})`;
 };
 
 const onMinusButtonClick = () => {
   if (parseInt(scaleControlValue.value) > MINSCALE) {
     scaleControlValue.value = `${parseInt(scaleControlValue.value) - SCALESTEP}%`;
-  };
+  }
   imgPreview.style.transform = `scale(${parseInt(scaleControlValue.value) / 100})`;
 };
 

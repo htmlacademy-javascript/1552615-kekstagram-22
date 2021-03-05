@@ -1,4 +1,5 @@
 import { imgPreview } from './image-scale.js';
+import { noUiSlider } from '../nouislider/nouislider.js';
 
 const effectsList = document.querySelector('.effects__list');
 const effectSlider = document.querySelector('.effect-level__slider');
@@ -99,7 +100,7 @@ const sliderValueChangeHandler = (evt) => {
   } else if (evt.target.matches('#effect-none')) {
     effect = evt.target.value;
     document.querySelector('.effect-level').classList.add('hidden');
-  };
+  }
 };
 
 effectsList.addEventListener('change', sliderValueChangeHandler);

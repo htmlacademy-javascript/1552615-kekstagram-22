@@ -8,8 +8,8 @@ const uploadPopupCloseButton = imgUploadPopup.querySelector('.cancel');
 const onImgUploadPopupEscKeydown = (evt) => {
   if (isEscEvent(evt)) {
     evt.preventDefault();
-    closeUploadPopup();
-  };
+    closeImgUploadPopup();
+  }
 };
 
 //создаем обработчик события клика по иконке открытия попапа загрузки
@@ -17,7 +17,7 @@ const onUploadIconClick = (evt) => {
   if (evt.target.matches('.img-upload__label')) {
     evt.preventDefault();
     openImgUploadPopup();
-  };
+  }
 };
 
 //создаем функцию открытия попапа с загрузкой фотографии
@@ -45,7 +45,7 @@ imgUploadPopup.addEventListener('keydown', (evt) => {
   if (isEnterEvent(evt)) {
     evt.preventDefault();
     openImgUploadPopup();
-  };
+  }
 });
 
 //добавляем обработчик события на элемент крестик - закрытие попапа
@@ -58,6 +58,6 @@ document.addEventListener('keydown', (evt) => {
   if (isEscEvent(evt)) {
     evt.preventDefault();
     closeImgUploadPopup();
-  };
+  }
 });
 
