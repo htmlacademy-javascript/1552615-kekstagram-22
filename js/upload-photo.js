@@ -1,7 +1,6 @@
 import { isEnterEvent, isEscEvent } from './utils.js';
 
 const imgUploadPopup = document.querySelector('.img-upload__overlay');
-// const imgUploadIcon = document.querySelector('.img-upload__label');
 const uploadPhoto = document.querySelector('#upload-file');
 const uploadPopupCloseButton = imgUploadPopup.querySelector('.cancel');
 
@@ -35,7 +34,7 @@ const closeImgUploadPopup = () => {
   imgUploadPopup.classList.add('hidden');
   document.querySelector('body').classList.remove('modal-open');
   document.removeEventListener('keydown', onImgUploadPopupEscKeydown);
-  uploadInput.value = '';
+  uploadPhoto.value = '';
 };
 
 //добавляем обработчик события
