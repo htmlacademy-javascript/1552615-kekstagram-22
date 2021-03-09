@@ -1,7 +1,7 @@
 import { isEnterEvent, isEscEvent } from './utils.js';
 
 const imgUploadPopup = document.querySelector('.img-upload__overlay');
-const imgUploadIcon = document.querySelector('.img-upload__label');
+const uploadPhoto = document.querySelector('#upload-file');
 const uploadPopupCloseButton = imgUploadPopup.querySelector('.cancel');
 
 //создаем обработчик события нажатия на Esc
@@ -14,7 +14,7 @@ const onImgUploadPopupEscKeydown = (evt) => {
 
 //создаем обработчик события клика по иконке открытия попапа загрузки
 const onUploadIconClick = (evt) => {
-  if (evt.target.matches('.img-upload__label')) {
+  if (evt.target.matches('#upload-file') && evt.target.value !== '') {
     evt.preventDefault();
     openImgUploadPopup();
   }
@@ -34,11 +34,11 @@ const closeImgUploadPopup = () => {
   imgUploadPopup.classList.add('hidden');
   document.querySelector('body').classList.remove('modal-open');
   document.removeEventListener('keydown', onImgUploadPopupEscKeydown);
-  document.querySelector('#upload-file').textContent = '';
+  uploadPhoto.value = '';
 };
 
-//добавляем обработчик события клик на иконке загрузки
-imgUploadIcon.addEventListener('click', onUploadIconClick);
+//добавляем обработчик события
+uploadPhoto.addEventListener('change', onUploadIconClick);
 
 //доавляем обработчик события нажатия Enter на миниатюру
 imgUploadPopup.addEventListener('keydown', (evt) => {

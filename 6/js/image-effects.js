@@ -34,7 +34,7 @@ effectSlider.noUiSlider.on('update', (values, handle) => {
   } else if (effect === 'sepia') {
     imgPreview.style.filter = `sepia(${effectValue.value})`;
   } else if (effect === 'marvin') {
-    imgPreview.style.filter = `invert(${effectValue.value})`;
+    imgPreview.style.filter = `invert(${effectValue.value}%)`;
   } else if (effect === 'phobos') {
     imgPreview.style.filter = `blur(${effectValue.value}px)`;
   } else if (effect === 'heat') {
