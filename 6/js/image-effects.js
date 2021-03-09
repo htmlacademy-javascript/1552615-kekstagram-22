@@ -1,12 +1,13 @@
 import { imgPreview } from './image-scale.js';
-import { noUiSlider } from '../nouislider/nouislider.js';
+// import { noUiSlider } from '../nouislider/nouislider.js';
 
 const effectsList = document.querySelector('.effects__list');
 const effectSlider = document.querySelector('.effect-level__slider');
 const effectValue = document.querySelector('.effect-level__value');
+const sliderField = document.querySelector('.effect-level');
 let effect = '';
 
-noUiSlider.create(effectSlider, {
+window.noUiSlider.create(effectSlider, {
   range: {
     min: 0,
     max: 100,
@@ -44,7 +45,7 @@ effectSlider.noUiSlider.on('update', (values, handle) => {
 const sliderValueChangeHandler = (evt) => {
   if (evt.target.matches('#effect-chrome')) {
     effect = evt.target.value;
-    document.querySelector('.effect-level').classList.remove('hidden');
+    sliderField.classList.remove('hidden');
     effectSlider.noUiSlider.updateOptions({
       range: {
         min: 0,
@@ -55,7 +56,7 @@ const sliderValueChangeHandler = (evt) => {
     });
   } else if (evt.target.matches('#effect-sepia')) {
     effect = evt.target.value;
-    document.querySelector('.effect-level').classList.remove('hidden');
+    sliderField.classList.remove('hidden');
     effectSlider.noUiSlider.updateOptions({
       range: {
         min: 0,
@@ -66,7 +67,7 @@ const sliderValueChangeHandler = (evt) => {
     });
   } else if (evt.target.matches('#effect-marvin')) {
     effect = evt.target.value;
-    document.querySelector('.effect-level').classList.remove('hidden');
+    sliderField.classList.remove('hidden');
     effectSlider.noUiSlider.updateOptions({
       range: {
         min: 0,
@@ -77,7 +78,7 @@ const sliderValueChangeHandler = (evt) => {
     });
   } else if (evt.target.matches('#effect-phobos')) {
     effect = evt.target.value;
-    document.querySelector('.effect-level').classList.remove('hidden');
+    sliderField.classList.remove('hidden');
     effectSlider.noUiSlider.updateOptions({
       range: {
         min: 0,
@@ -88,7 +89,7 @@ const sliderValueChangeHandler = (evt) => {
     });
   } else if (evt.target.matches('#effect-heat')) {
     effect = evt.target.value;
-    document.querySelector('.effect-level').classList.remove('hidden');
+    sliderField.classList.remove('hidden');
     effectSlider.noUiSlider.updateOptions({
       range: {
         min: 0,
@@ -99,7 +100,8 @@ const sliderValueChangeHandler = (evt) => {
     });
   } else if (evt.target.matches('#effect-none')) {
     effect = evt.target.value;
-    document.querySelector('.effect-level').classList.add('hidden');
+    imgPreview.style.filter = '';
+    sliderField.classList.add('hidden');
   }
 };
 
