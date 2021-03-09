@@ -1,4 +1,5 @@
 import { isEnterEvent, isEscEvent } from './utils.js';
+import { imgPreview } from './image-scale.js';
 
 const imgUploadPopup = document.querySelector('.img-upload__overlay');
 const uploadPhoto = document.querySelector('#upload-file');
@@ -35,6 +36,8 @@ const closeImgUploadPopup = () => {
   document.querySelector('body').classList.remove('modal-open');
   document.removeEventListener('keydown', onImgUploadPopupEscKeydown);
   uploadPhoto.value = '';
+  imgPreview.style.filter = '';
+  imgPreview.style.transform = 'scale(1)';
 };
 
 //добавляем обработчик события
