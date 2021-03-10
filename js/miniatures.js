@@ -1,23 +1,36 @@
 import { photoParameters } from './create-data.js';
-//ищем section .picture
-const pictures = document.querySelector('.pictures');
+import { openBigPicture, bigPicDataRender } from './big-pic.js'
 
-//ищем соответствующий template и в нем <a> с классом .picture
+const pictures = document.querySelector('.pictures');
 const userPictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
 
-const renderPicture = ({ url, comments, likes }) => {
+
+
+// создаем миниатюры
+const renderPicture = ({ url, comments, likes, id }) => {
   const userPictureElement = userPictureTemplate.cloneNode(true);
   userPictureElement.querySelector('.picture__img').src = url;
   userPictureElement.querySelector('.picture__comments').textContent = comments.length;
   userPictureElement.querySelector('.picture__likes').textContent = likes;
+  userPictureElement.querySelector('.picture__img').dataset.id = id;
   return userPictureElement;
-}
-//создаем фрагмент
+};
+
 const picturesFragment = document.createDocumentFragment();
 
-//пилим массив из объектов
-photoParameters.forEach((value) => {
-  picturesFragment.appendChild(renderPicture(value));
-})
-//добавляем фрагмент
+photoParameters.forEach((photo) => {
+  picturesFragment.appendChild(renderPicture(photo));
+});
+
 pictures.appendChild(picturesFragment);
+
+//создаем обработчик события клика для каждой фотографии
+const onPictureImgClick = (evt) => {
+  if (evt.target.matches('.picture__img')) {
+    openBigPicture();
+    bigPicDataRender(photoParameters.find(photo => photo.id == evt.target.dataset.id));
+  }
+};
+
+pictures.addEventListener('click', onPictureImgClick);
+
