@@ -29,7 +29,7 @@ const onPictureImgClick = (evt) => {
   const pictureElement = evt.target.closest('.picture');
   if (pictureElement) {
     openBigPicture();
-    bigPicDataRender(photoParameters.find(photo => photo.id == Number(pictureElement.dataset.id)));
+    bigPicDataRender(photoParameters.find(photo => photo.id === Number(pictureElement.dataset.id)));
   }
 };
 
