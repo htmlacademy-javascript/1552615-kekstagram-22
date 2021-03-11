@@ -26,9 +26,10 @@ pictures.appendChild(picturesFragment);
 
 //создаем обработчик события клика для каждой фотографии
 const onPictureImgClick = (evt) => {
-  if (evt.target.closest('.picture')) {
+  const pictureElement = evt.target.closest('.picture');
+  if (pictureElement) {
     openBigPicture();
-    bigPicDataRender(photoParameters.find(photo => photo.id == evt.target.closest('.picture').dataset.id));
+    bigPicDataRender(photoParameters.find(photo => photo.id == Number(pictureElement.dataset.id)));
   }
 };
 
