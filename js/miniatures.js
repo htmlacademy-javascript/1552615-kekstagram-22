@@ -2,7 +2,7 @@ import { photoParameters } from './create-data.js';
 import { openBigPicture, bigPicDataRender } from './big-pic.js'
 
 const pictures = document.querySelector('.pictures');
-const userPictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
+const userPictureTemplate = document.querySelector('#picture').content;
 
 
 
@@ -12,7 +12,7 @@ const renderPicture = ({ url, comments, likes, id }) => {
   userPictureElement.querySelector('.picture__img').src = url;
   userPictureElement.querySelector('.picture__comments').textContent = comments.length;
   userPictureElement.querySelector('.picture__likes').textContent = likes;
-  userPictureElement.querySelector('.picture__img').dataset.id = id;
+  userPictureElement.querySelector('.picture').dataset.id = id;
   return userPictureElement;
 };
 
@@ -26,11 +26,10 @@ pictures.appendChild(picturesFragment);
 
 //создаем обработчик события клика для каждой фотографии
 const onPictureImgClick = (evt) => {
-  if (evt.target.matches('.picture__img')) {
+  if (evt.target.closest('.picture')) {
     openBigPicture();
-    bigPicDataRender(photoParameters.find(photo => photo.id == evt.target.dataset.id));
+    bigPicDataRender(photoParameters.find(photo => photo.id == evt.target.closest('.picture').dataset.id));
   }
 };
 
 pictures.addEventListener('click', onPictureImgClick);
-
